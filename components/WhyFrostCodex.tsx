@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Brain, Target, Zap, Layers, MessageSquare, Rocket } from "lucide-react";
 
 const reasons = [
@@ -16,12 +13,7 @@ const WhyFrostCodex = () => {
   return (
     <section id="why-us" className="py-24 md:py-32">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="max-w-2xl mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             Why <span className="text-gradient">FrostCodex</span>
           </h2>
@@ -29,17 +21,14 @@ const WhyFrostCodex = () => {
             You don't need another vendor. You need a technical partner who
             understands what it takes to win.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((r, i) => (
-            <motion.div
+            <div
               key={r.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="flex gap-4 p-5 rounded-xl hover:bg-secondary/40 transition-colors"
+              className="flex gap-4 p-5 rounded-xl hover:bg-secondary/40 transition-colors animate-fade-in-up-on-scroll"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <r.icon size={18} className="text-primary" />
@@ -48,7 +37,7 @@ const WhyFrostCodex = () => {
                 <h3 className="font-display font-semibold mb-1 text-foreground">{r.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

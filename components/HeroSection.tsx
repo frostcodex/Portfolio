@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 
 const HeroSection = () => {
@@ -13,22 +10,12 @@ const HeroSection = () => {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-glow pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 pt-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-4xl mx-auto text-center"
-        >
+        <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-8"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-8 animate-fade-in-scale">
             <Zap size={14} />
             Engineering Partners for Startups
-          </motion.div>
+          </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-display leading-[1.1] tracking-tight mb-6">
             Your Technical{" "}
@@ -66,15 +53,10 @@ const HeroSection = () => {
           </div>
 
           {/* Trust line */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-16 text-xs text-muted-foreground/50 uppercase tracking-widest"
-          >
+          <p className="mt-16 text-xs text-muted-foreground/50 uppercase tracking-widest animate-fade-in-delayed">
             Trusted by funded startups &amp; growing SaaS teams
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
       </div>
     </section>
   );

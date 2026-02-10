@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Code2, Smartphone, Palette, TrendingUp } from "lucide-react";
 
 const services = [
@@ -34,12 +31,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-24 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="max-w-2xl mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             Our <span className="text-gradient">Services</span>
           </h2>
@@ -48,17 +40,14 @@ const ServicesSection = () => {
             growth-stage engineering. Every service is designed to move your
             metrics, not just your codebase.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, i) => (
-            <motion.div
+            <div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card p-8 group hover:frost-glow-sm transition-shadow"
+              className="glass-card p-8 group hover:frost-glow-sm transition-shadow animate-fade-in-up-on-scroll"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <service.icon size={24} className="text-primary" />
@@ -79,7 +68,7 @@ const ServicesSection = () => {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

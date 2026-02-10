@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { Send, Users, Globe, ArrowRight } from "lucide-react";
 import { z } from "zod";
@@ -108,11 +107,7 @@ const ContactCTA = () => {
       <section id="contact" className="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-2xl mx-auto text-center glass-card p-12 rounded-2xl"
-          >
+          <div className="max-w-2xl mx-auto text-center glass-card p-12 rounded-2xl animate-fade-in-scale">
             <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
               <Send className="text-primary" size={28} />
             </div>
@@ -122,7 +117,7 @@ const ContactCTA = () => {
             <p className="text-muted-foreground">
               We've received your message and will get back to you within 24 hours.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
     );
@@ -135,12 +130,7 @@ const ContactCTA = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
-        >
+        <div className="text-center mb-12 md:mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-4 leading-tight">
             Get In <span className="text-gradient">Touch</span>
           </h2>
@@ -148,16 +138,13 @@ const ContactCTA = () => {
             Ready to build something that matters? Tell us about your project and
             let's start the conversation.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="lg:col-span-2"
+          <div
+            className="lg:col-span-2 animate-fade-in-up-on-scroll"
+            style={{ animationDelay: "100ms" }}
           >
             <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-6 md:p-8 space-y-6">
               {/* Name & Email Row */}
@@ -331,15 +318,12 @@ const ContactCTA = () => {
                 Response within 24 hours · No commitment required
               </p>
             </form>
-          </motion.div>
+          </div>
 
           {/* Info Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="space-y-6"
+          <div
+            className="space-y-6 animate-fade-in-up-on-scroll"
+            style={{ animationDelay: "200ms" }}
           >
             {infoCards.map((card, index) => (
               <a
@@ -380,7 +364,7 @@ const ContactCTA = () => {
                 Schedule a 15-min discovery call to discuss your project.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
