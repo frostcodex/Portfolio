@@ -51,7 +51,7 @@ SEO (Search Engine Optimization) helps Google and other search engines understan
 - **What it is**: A map of all your website pages
 - **Why it matters**: Helps Google discover all your pages quickly
 - **File**: `app/sitemap.ts` - Automatically generates `/sitemap.xml`
-- **Note**: Only includes actual pages (like `/about`), NOT hash links (like `#services`)
+- **Note**: Only includes actual pages (like `/about` or `/portfolio/leadflow-crm`), NOT hash links (like `#services`)
 
 #### 6. **Improved Social Media Sharing** ✅
 - **What it is**: Better tags for when people share your site on Facebook/Twitter
@@ -87,8 +87,14 @@ SEO (Search Engine Optimization) helps Google and other search engines understan
 11. **Canonical URL**: ✅ Set to prevent duplicates
 12. **Structured Data (JSON-LD)**: ✅ Organization and Service schemas
 13. **robots.txt**: ✅ Auto-generated via `app/robots.ts`
-14. **sitemap.xml**: ✅ Auto-generated via `app/sitemap.ts`
-15. **Creator/Publisher**: ✅ Added for better attribution
+14. **sitemap.xml**: ✅ Auto-generated via `app/sitemap.ts` (home + portfolio project pages)
+15. **Per-Project Metadata**: ✅ Dynamic SEO metadata for `/portfolio/[id]` pages
+16. **Creator/Publisher**: ✅ Added for better attribution
+
+#### 9. **Per-Project Portfolio SEO** ✅
+- **What it is**: Custom titles, descriptions, and social previews for each portfolio project page
+- **Why it matters**: Each project (LeadFlow CRM, StockLite, etc.) can rank and be shared independently
+- **File**: `app/portfolio/[id]/page.tsx` - Added `generateMetadata` using `lib/portfolioProjects.ts` data
 
 ### ⚠️ Optional Improvements (For 95-100 Score):
 
