@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { User, Users, Package } from "lucide-react";
 
 const models = [
@@ -28,12 +25,7 @@ const EngagementModels = () => {
   return (
     <section className="py-24 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="max-w-2xl mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             How We <span className="text-gradient">Work</span>
           </h2>
@@ -41,17 +33,14 @@ const EngagementModels = () => {
             Flexible models built around your stage, budget, and speed. Start
             with one developer or a full product team.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {models.map((m, i) => (
-            <motion.div
+            <div
               key={m.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card gradient-border p-8 flex flex-col"
+              className="glass-card gradient-border p-8 flex flex-col animate-fade-in-up-on-scroll"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <m.icon size={24} className="text-primary" />
@@ -65,7 +54,7 @@ const EngagementModels = () => {
               <span className="text-xs text-primary font-medium uppercase tracking-wide">
                 {m.cta}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

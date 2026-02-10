@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Rocket, BarChart3, Globe, Smartphone, Settings } from "lucide-react";
 
 const items = [
@@ -31,26 +28,11 @@ const items = [
   },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-const child = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 const WhatWeBuild = () => {
   return (
     <section id="what-we-build" className="py-24 md:py-32">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="max-w-2xl mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             What We <span className="text-gradient">Build</span>
           </h2>
@@ -58,20 +40,14 @@ const WhatWeBuild = () => {
             We don't build generic software. We build the products that define
             your company — engineered for speed, scale, and market fit.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {items.map((item) => (
-            <motion.div
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item, index) => (
+            <div
               key={item.title}
-              variants={child}
-              className="glass-card gradient-border p-6 hover:bg-card/80 transition-colors group"
+              className="glass-card gradient-border p-6 hover:bg-card/80 transition-colors group animate-fade-in-up-on-scroll"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:frost-glow-sm transition-shadow">
                 <item.icon size={20} className="text-primary" />
@@ -82,9 +58,9 @@ const WhatWeBuild = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

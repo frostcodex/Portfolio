@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const categories = [
   {
     label: "Frontend",
@@ -33,12 +29,7 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="py-24 md:py-32">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="max-w-2xl mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             Tech <span className="text-gradient">Stack</span>
           </h2>
@@ -47,17 +38,14 @@ const TechStack = () => {
             your product's stage and goals — from battle-tested frameworks to
             cutting-edge platforms.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
-            <motion.div
+            <div
               key={cat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="glass-card p-6"
+              className="glass-card p-6 animate-fade-in-up-on-scroll"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
               <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
                 {cat.label}
@@ -72,7 +60,7 @@ const TechStack = () => {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

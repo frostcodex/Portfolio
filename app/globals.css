@@ -103,4 +103,68 @@
       linear-gradient(90deg, hsl(220 15% 18% / 0.5) 1px, transparent 1px);
     background-size: 60px 60px;
   }
+
+  /* Animations for progressive enhancement */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.7s ease-out forwards;
+  }
+
+  .animate-fade-in-scale {
+    animation: fade-in-scale 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in-up 0.5s ease-out 0.8s forwards;
+    opacity: 0;
+  }
+
+  /* Scroll-triggered animations - visible by default, enhanced with JS */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-fade-in-up-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    /* When JavaScript is enabled, start hidden and animate on scroll */
+    .js-enabled .animate-fade-in-up-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .js-enabled .animate-fade-in-up-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up-on-scroll {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
