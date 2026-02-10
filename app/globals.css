@@ -167,4 +167,17 @@
       transform: none;
     }
   }
+
+  /* Portfolio details - only show one project at a time (no JS needed) */
+  .portfolio-details section {
+    display: none;
+  }
+
+  .portfolio-details section:first-of-type {
+    display: block;
+  }
+
+  .portfolio-details section:target {
+    display: block;
+  }
 }

@@ -1,23 +1,24 @@
 import { MetadataRoute } from "next";
+import { portfolioProjects } from "@/lib/portfolioProjects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://frostcodex.com";
 
-  return [
+  const mainPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
-    // Add more pages as you create them (actual routes, not hash links)
-    // Note: Hash links like #services, #contact are NOT separate pages - they're sections on the same page
-    // Only add actual different URLs like /about, /contact, /blog, etc.
-    // {
-    //   url: `${baseUrl}/about`,
-    //   lastModified: new Date(),
-    //   changeFrequency: "monthly",
-    //   priority: 0.8,
-    // },
   ];
+
+  const portfolioPages: MetadataRoute.Sitemap = portfolioProjects.map((project) => ({
+    url: `${baseUrl}/portfolio/${project.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...mainPages, ...portfolioPages];
 }

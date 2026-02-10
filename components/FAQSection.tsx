@@ -1,6 +1,4 @@
 "use client";
-
-import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -35,26 +33,16 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-24 md:py-32">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="max-w-2xl mb-16 animate-fade-in-up-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
             Frequently <span className="text-gradient">Asked</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             Quick answers to the questions we hear most from startup founders.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl"
-        >
+        <div className="max-w-3xl animate-fade-in-up-on-scroll">
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
               <AccordionItem
@@ -71,7 +59,7 @@ const FAQSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

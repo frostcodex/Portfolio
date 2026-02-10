@@ -5,6 +5,7 @@ import ServicesSection from "@/components/ServicesSection";
 import WhyFrostCodex from "@/components/WhyFrostCodex";
 import EngagementModels from "@/components/EngagementModels";
 import TechStack from "@/components/TechStack";
+import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsIntro from "@/components/TestimonialsIntro";
 import FAQSection from "@/components/FAQSection";
 import ContactCTA from "@/components/ContactCTA";
@@ -20,6 +21,7 @@ export default function Home() {
       <WhyFrostCodex />
       <EngagementModels />
       <TechStack />
+      <PortfolioSection />
       <TestimonialsIntro />
       <FAQSection />
       <ContactCTA />
